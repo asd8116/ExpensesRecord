@@ -45,8 +45,14 @@ router.put('/:id', (req, res) => {
 })
 
 // delete post
-router.get('/:id/delete', (req, res) => {
-  res.send('delete')
+router.delete('/:id/delete', (req, res) => {
+  Record.findOne({ _id: req.params.id }, (err, record) => {
+    if (err) return console.error(err)
+    record.remove(err => {
+      if (err) return console.error(err)
+      return res.redirect('/')
+    })
+  })
 })
 
 module.exports = router

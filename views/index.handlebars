@@ -1,22 +1,26 @@
-<a href="/records/new" class="btn btn-primary mb-3">Create</a>
-
 <ul class="list-group">
   {{#each records}}
   <li class="list-group-item">
     <div class="row">
-      <div class="col-auto mr-auto">
-        <h3 style="display: inline;">{{{this.category}}}</h3>
-        <h3 style="display: inline;">{{{this.name}}}</h3>
-        <h3 style="display: inline;">{{{this.date}}}</h3>
-        <h3 style="display: inline;">{{{this.amount}}}</h3>
+      <div class="col-1">
+        <h5>{{{this.category}}}</h5>
       </div>
-      <div class="col-auto">
-        <a href="/records/{{{this.id}}}/edit" class="btn btn-success">edit</a>
+      <div class="col-6">
+        <p>{{{this.name}}}</p>
+        <p>{{{this.date}}}</p>
+      </div>
+      <div class="col-2">
+        <h5>{{{this.amount}}}</h5>
+      </div>
+      <div class="col-3">
+        <a href="/records/{{{this.id}}}/edit" class="btn btn-success">修改</a>
         <form action="/records/{{{this.id}}}/delete?_method=DELETE" method="post" style="display:inline">
-          <button type="submit" class="btn btn-danger">delete</button>
+          <button type="submit" class="btn btn-danger">刪除</button>
         </form>
       </div>
     </div>
   </li>
   {{/each}}
 </ul>
+
+<a href="/records/new" class="btn btn-primary mt-3">新增支出</a>
