@@ -24,12 +24,24 @@ router.post('/', (req, res) => {
 
 // edit page
 router.get('/:id/edit', (req, res) => {
-  res.render('edit')
+  Record.findOne({ _id: req.params.id }, (err, record) => {
+    if (err) return console.error(err)
+    return res.render('edit', { record: record })
+  })
 })
 
 // edit post
-router.get('/:id', (req, res) => {
-  res.send('edit')
+router.put('/:id', (req, res) => {
+  Record.findOne({ _id: req.params.id }, (err, record) => {
+    if (err) return console.error(err)
+
+    Object.assign(record, req.body)
+
+    record.save(err => {
+      if (err) return console.error(err)
+      return res.redirect('/')
+    })
+  })
 })
 
 // delete post
