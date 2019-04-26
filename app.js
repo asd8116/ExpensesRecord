@@ -8,6 +8,12 @@ const flash = require('connect-flash')
 const app = express()
 const mongoose = require('mongoose')
 
+// 判別開發環境
+if (process.env.NODE_ENV !== 'production') {
+  // 如果不是 production 模式
+  require('dotenv').config() // 使用 dotenv 讀取 .env 檔案
+}
+
 mongoose.connect('mongodb://localhost/records', {
   useNewUrlParser: true,
   useCreateIndex: true
@@ -64,6 +70,7 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/home'))
 app.use('/records', require('./routes/records'))
 app.use('/users', require('./routes/users'))
+app.use('/auth', require('./routes/auths'))
 
 app.listen(3000, () => {
   console.log('App is running localhost:3000 !')
