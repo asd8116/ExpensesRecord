@@ -8,7 +8,7 @@ const flash = require('connect-flash')
 const app = express()
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/expenses', {
+mongoose.connect('mongodb://localhost/records', {
   useNewUrlParser: true,
   useCreateIndex: true
 })
