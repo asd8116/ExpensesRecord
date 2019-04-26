@@ -15,7 +15,7 @@ router.get('/new', authenticated, (req, res) => {
 
 // Create post
 router.post('/', authenticated, (req, res) => {
-  const record = Record({ ...req.body })
+  const record = Record({ ...req.body, userId: req.user._id })
 
   record.save(err => {
     if (err) return console.error(err)
@@ -25,7 +25,7 @@ router.post('/', authenticated, (req, res) => {
 
 // edit page
 router.get('/:id/edit', authenticated, (req, res) => {
-  Record.findOne({ _id: req.params.id }, (err, record) => {
+  Record.findOne({ _id: req.params.id, userId: req.user._id }, (err, record) => {
     if (err) return console.error(err)
     return res.render('edit', { record: record })
   })
@@ -33,7 +33,7 @@ router.get('/:id/edit', authenticated, (req, res) => {
 
 // edit post
 router.put('/:id', authenticated, (req, res) => {
-  Record.findOne({ _id: req.params.id }, (err, record) => {
+  Record.findOne({ _id: req.params.id, userId: req.user._id }, (err, record) => {
     if (err) return console.error(err)
 
     Object.assign(record, req.body)
@@ -47,7 +47,7 @@ router.put('/:id', authenticated, (req, res) => {
 
 // delete post
 router.delete('/:id/delete', authenticated, (req, res) => {
-  Record.findOne({ _id: req.params.id }, (err, record) => {
+  Record.findOne({ _id: req.params.id, userId: req.user._id }, (err, record) => {
     if (err) return console.error(err)
     record.remove(err => {
       if (err) return console.error(err)
