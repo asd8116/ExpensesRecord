@@ -1,6 +1,52 @@
+<div class="row mb-3">
+  <div class="mx-auto">
+    <div class="dropdown">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">月份</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownButton">
+        <a class="dropdown-item" href="#">1月</a>
+        <a class="dropdown-item" href="#">2月</a>
+        <a class="dropdown-item" href="#">3月</a>
+        <a class="dropdown-item" href="#">4月</a>
+        <a class="dropdown-item" href="#">5月</a>
+        <a class="dropdown-item" href="#">6月</a>
+        <a class="dropdown-item" href="#">7月</a>
+        <a class="dropdown-item" href="#">8月</a>
+        <a class="dropdown-item" href="#">9月</a>
+        <a class="dropdown-item" href="#">10月</a>
+        <a class="dropdown-item" href="#">11月</a>
+        <a class="dropdown-item" href="#">11月</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto">
+    <div class="dropdown">
+      <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">類別</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownButton">
+        <a class="dropdown-item" href="#">家居物業</a>
+        <a class="dropdown-item" href="#">交通出行</a>
+        <a class="dropdown-item" href="#">休閒娛樂</a>
+        <a class="dropdown-item" href="#">餐飲食品</a>
+        <a class="dropdown-item" href="#">其他</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="col-2">
+    <label for="name">總金額 :</label>
+  </div>
+  <div class="col-6">
+    <input type="number" name="name" class="form-control" id="name" placeholder="錢" value="">
+  </div>
+</div>
+
 <ul class="list-group">
   {{#each records}}
-  <li class="list-group-item">
+  <li class="list-group-item mb-1">
     <div class="row">
       <div class="col-1">
         <h5>{{{this.category}}}</h5>
