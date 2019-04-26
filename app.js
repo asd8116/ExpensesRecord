@@ -55,6 +55,7 @@ app.use(passport.session())
 // routes
 app.use('/', require('./routes/home'))
 app.use('/records', require('./routes/records'))
+app.use('/users', require('./routes/users'))
 
 app.listen(3000, () => {
   console.log('App is running localhost:3000 !')
