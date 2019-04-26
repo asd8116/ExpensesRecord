@@ -9,12 +9,17 @@ router.get('/', (req, res) => {
 
 // Create page
 router.get('/new', (req, res) => {
-  res.send('new')
+  return res.render('new')
 })
 
 // Create post
 router.post('/', (req, res) => {
-  res.send('new')
+  const record = Record(req.body)
+
+  record.save(err => {
+    if (err) return console.error(err)
+    return res.redirect('/')
+  })
 })
 
 // edit page
