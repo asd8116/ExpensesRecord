@@ -7,6 +7,20 @@ const passport = require('passport')
 const flash = require('connect-flash')
 const app = express()
 const mongoose = require('mongoose')
+const Handlebars = require('handlebars')
+
+Handlebars.registerHelper('switch', function(value, options) {
+  this.switch_value = value
+  this.switch_break = false
+  return options.fn(this)
+})
+
+Handlebars.registerHelper('case', function(value, options) {
+  if (value == this.switch_value) {
+    this.switch_break = true
+    return options.fn(this)
+  }
+})
 
 // 判別開發環境
 if (process.env.NODE_ENV !== 'production') {

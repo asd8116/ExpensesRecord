@@ -6,7 +6,13 @@ const { authenticated } = require('../config/auth')
 router.get('/', authenticated, (req, res) => {
   Record.find({ userId: req.user._id }).exec((err, records) => {
     if (err) return console.error(err)
-    return res.render('index', { records: records })
+
+    let totalAmount = 0
+    for (record of records) {
+      totalAmount += record.amount
+    }
+
+    return res.render('index', { records: records, totalAmount })
   })
 })
 
