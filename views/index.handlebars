@@ -1,8 +1,8 @@
-<div class="row mb-3">
-  <div class="mx-auto">
+<div class="row mb-4">
+  <div class="col-3">
     <div class="dropdown">
-      <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">月份</button>
+      <button class="btn btn-outline-primary btn-block dropdown-toggle" type="button" id="dropdownButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">月份</button>
       <div class="dropdown-menu" aria-labelledby="dropdownButton">
         <a class="dropdown-item" href="#">1月</a>
         <a class="dropdown-item" href="#">2月</a>
@@ -20,10 +20,10 @@
     </div>
   </div>
 
-  <div class="mx-auto">
+  <div class="col-3">
     <div class="dropdown">
-      <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">類別</button>
+      <button class="btn btn-outline-primary btn-block dropdown-toggle" type="button" id="dropdownButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">類別</button>
       <div class="dropdown-menu" aria-labelledby="dropdownButton">
         <a class="dropdown-item" href="#">家居物業</a>
         <a class="dropdown-item" href="#">交通出行</a>
@@ -35,14 +35,16 @@
   </div>
 </div>
 
-<div class="row mb-3">
-  <div class="col-2">
+<div class="row mb-4">
+  <div class="col-3">
     <label for="name">總金額 :</label>
+  </div>
+  <div class="col-3">
     <h1>{{totalAmount}}</h1>
   </div>
 </div>
 
-<ul class="list-group mb-3">
+<ul class="list-group mb-5">
   {{#each records}}
   <li class="list-group-item mb-1">
     <div class="row">
