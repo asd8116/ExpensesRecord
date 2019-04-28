@@ -28,7 +28,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config() // 使用 dotenv 讀取 .env 檔案
 }
 
-mongoose.connect('mongodb://localhost/records', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/records', {
   useNewUrlParser: true,
   useCreateIndex: true
 })
@@ -88,6 +88,6 @@ app.use('/records', require('./routes/records'))
 app.use('/users', require('./routes/users'))
 app.use('/auth', require('./routes/auths'))
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('App is running localhost:3000 !')
 })

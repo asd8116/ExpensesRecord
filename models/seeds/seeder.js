@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Record = require('../record')
 
-mongoose.connect('mongodb://localhost/records', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/records', {
   useNewUrlParser: true,
   useCreateIndex: true
 })
