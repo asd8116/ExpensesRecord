@@ -15,9 +15,9 @@ db.once('open', () => {
   console.log('db connected!')
 
   Record.create({
-    name: 'asd8116',
-    category: '交通',
-    date: '2019-04-24 14:12:30.561Z',
+    name: '公車',
+    category: 'travel',
+    date: '2019-04-24',
     amount: '60'
   })
 

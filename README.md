@@ -2,9 +2,11 @@
 
 運用 Express & MongoDB 打造的網頁，將平常的花費與開銷進行紀錄。
 
+[Website](https://infinite-basin-38981.herokuapp.com)
+
 ## Picture
 
-![畫面截圖](https://i.imgur.com/tkC9xKF.jpg)
+![畫面截圖](https://i.imgur.com/S5N2YEu.jpg)
 
 ## Environment SetUp
 
@@ -57,6 +59,7 @@ node app.js
 
 - 可進行一般帳密註冊
 - 可用 Facebook 帳號快速註冊登入
+- 可用 Google 帳號快速註冊登入
 - 帳號或密碼錯誤時會出現警告
 - Login or Logout 皆會有提示
 

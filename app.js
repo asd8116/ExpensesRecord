@@ -87,6 +87,7 @@ app.use('/', require('./routes/home'))
 app.use('/records', require('./routes/records'))
 app.use('/users', require('./routes/users'))
 app.use('/auth', require('./routes/auths'))
+app.use('/filter', require('./routes/filter'))
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('App is running localhost:3000 !')
