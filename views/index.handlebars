@@ -37,16 +37,16 @@
 
 <div class="row mb-4">
   <div class="col-3">
-    <label for="name">總金額 :</label>
+    <h2 for="name">總金額：</h2>
   </div>
   <div class="col-3">
     <h1>{{totalAmount}}</h1>
   </div>
 </div>
 
-<ul class="list-group mb-5">
+<ul class="list-group mb-4">
   {{#each records}}
-  <li class="list-group-item mb-1">
+  <li class="list-group-item mb-1 pb-2">
     <div class="row">
       <div class="col-2">
         {{#switch this.category}}
@@ -57,17 +57,17 @@
         {{#case 'other'}} <i class="fas fa-pen fa-5x"></i> {{/case}}
         {{/switch}}
       </div>
-      <div class="col-6">
-        <p>{{{this.name}}}</p>
-        <p>{{{this.date}}}</p>
+      <div class="col-auto mr-auto">
+        <p style="line-height: 2em">{{this.name}}</p>
+        <p style="line-height: 0.5em">{{this.date}}</p>
+      </div>
+      <div class="col-auto">
+        <h3 style="line-height: 2em">{{this.amount}}</h3>
       </div>
       <div class="col-2">
-        <h5>{{{this.amount}}}</h5>
-      </div>
-      <div class="col-2">
-        <a href="/records/{{{this.id}}}/edit" class="btn btn-success btn-block">修改</a>
-        <form action="/records/{{{this.id}}}/delete?_method=DELETE" method="post" style="display:inline">
-          <button type="submit" class="btn btn-danger btn-block">刪除</button>
+        <a href="/records/{{this.id}}/edit" class="btn btn-outline-dark btn-block">修改</a>
+        <form action="/records/{{this.id}}/delete?_method=DELETE" method="post" style="display:inline">
+          <button type="submit" class="btn btn-outline-dark btn-block">刪除</button>
         </form>
       </div>
     </div>
@@ -75,4 +75,4 @@
   {{/each}}
 </ul>
 
-<a href="/records/new" class="btn btn-warning btn-block mb-5">新增支出</a>
+<a href="/records/new" class="btn btn-outline-info btn-block mb-5">新增支出</a>

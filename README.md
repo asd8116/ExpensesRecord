@@ -6,7 +6,7 @@
 
 ## Picture
 
-![畫面截圖](https://i.imgur.com/S5N2YEu.jpg)
+![畫面截圖](https://i.imgur.com/ofYLlLO.jpg)
 
 ## Environment SetUp
 
