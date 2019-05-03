@@ -41,7 +41,7 @@ npm install
 匯入種子檔案，並用 `ctrl + c` 結束匯入成功
 
 ```
-node ./models/seeds/seeder.js
+npm run seeder
 ```
 
 開啟本地伺服器。
