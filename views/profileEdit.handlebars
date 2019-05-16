@@ -1,0 +1,30 @@
+<div class="container">
+  <form action="/profile/edit?_method=PUT" method="post" enctype="multipart/form-data">
+    <div class="card p-1" style="max-width: 540px; margin: 20vh auto;">
+      <div class="row no-gutters">
+        <div class="col-md-4 text-center p-3">
+          <label for="user-image" style="position: relative;">
+            <img src="{{user.image}}" class="card-img" alt="avatar"
+              style="border-radius: 50%; width: 10em; height: 10em;">
+            <div id="user-img-layer"
+              style="position: absolute; left: 0px; top: 0px; border-radius: 50%; width: 10em; height: 10em; background-color:rgba(80, 80, 80, 0.6); color: #fff; cursor: pointer;">
+              <p style="position: absolute; top: 50%; left: 50%;transform: translate(-50%, -50%)"
+                id="user-img-upload-text">上傳圖片</p>
+            </div>
+          </label>
+          <input type='file' name='image' id="user-image" class="d-none" accept="image/gif, image/jpeg, image/png" />
+        </div>
+        <div class="col-md-8  p-3">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="name">姓名：</label>
+              <input type="text" id="name" name="name" class="form-control" value="{{user.name}}">
+            </div>
+            <p class="card-text">{{user.email}}</p>
+            <button type="submit" class="btn btn-outline-dark" id="profile-edit-summit-button">確定</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
