@@ -59,6 +59,7 @@ app.use(
   })
 )
 
+app.use(express.static('public'))
 app.use(methodOverride('_method'))
 app.use(flash())
 
