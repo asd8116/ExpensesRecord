@@ -90,7 +90,7 @@ module.exports = passport => {
                 var newUser = User({
                   name: profile._json.name,
                   email: profile._json.email,
-                  image: profile._json.picture.data.url,
+                  image: profile._json.picture,
                   password: hash
                 })
                 newUser
