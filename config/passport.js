@@ -33,7 +33,7 @@ module.exports = passport => {
         clientID: process.env.FACEBOOK_ID,
         clientSecret: process.env.FACEBOOK_SECRET,
         callbackURL: process.env.FACEBOOK_CALLBACK,
-        profileFields: ['email', 'displayName']
+        profileFields: ['email', 'displayName', 'picture.type(large)']
       },
       (accessToken, refreshToken, profile, done) => {
         User.findOne({
@@ -48,6 +48,7 @@ module.exports = passport => {
                 var newUser = User({
                   name: profile._json.name,
                   email: profile._json.email,
+                  image: profile._json.picture.data.url,
                   password: hash
                 })
                 newUser
@@ -74,7 +75,7 @@ module.exports = passport => {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_SECRET,
         callbackURL: process.env.GOOGLE_CALLBACK,
-        profileFields: ['email', 'displayName']
+        profileFields: ['email', 'displayName', 'picture.type(large)']
       },
       (accessToken, refreshToken, profile, done) => {
         User.findOne({
@@ -89,6 +90,7 @@ module.exports = passport => {
                 var newUser = User({
                   name: profile._json.name,
                   email: profile._json.email,
+                  image: profile._json.picture.data.url,
                   password: hash
                 })
                 newUser
