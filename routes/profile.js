@@ -15,8 +15,15 @@ router.get('/edit', (req, res) => {
 })
 
 // profile edit
-router.post('/edit', (req, res) => {
-  res.send('profileEdit')
+router.put('/edit', (req, res) => {
+  User.findOne({ email: req.user.email }).then(user => {
+    user.name = req.body.name
+    user.date = moment().format('YYYY-MM-DD')
+    user.save(err => {
+      if (err) return console.error(err)
+      res.redirect('/profile')
+    })
+  })
 })
 
 module.exports = router

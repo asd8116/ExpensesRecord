@@ -8,6 +8,7 @@ const flash = require('connect-flash')
 const app = express()
 const mongoose = require('mongoose')
 const Handlebars = require('handlebars')
+const { authenticated } = require('./config/auth')
 
 Handlebars.registerHelper('switch', function(value, options) {
   this.switch_value = value
@@ -83,11 +84,12 @@ app.use((req, res, next) => {
 })
 
 // routes
-app.use('/', require('./routes/home'))
-app.use('/records', require('./routes/records'))
 app.use('/users', require('./routes/users'))
 app.use('/auth', require('./routes/auths'))
-app.use('/filter', require('./routes/filter'))
+app.use('/', authenticated, require('./routes/home'))
+app.use('/records', authenticated, require('./routes/records'))
+app.use('/filter', authenticated, require('./routes/filter'))
+app.use('/profile', authenticated, require('./routes/profile'))
 
 app.listen(process.env.PORT || 3000, () => {
   console.log('App is running localhost:3000 !')

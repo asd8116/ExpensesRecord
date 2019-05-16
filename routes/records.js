@@ -1,20 +1,19 @@
 const express = require('express')
 const router = express.Router()
 const Record = require('../models/record')
-const { authenticated } = require('../config/auth')
 
 // 全部 Record
-router.get('/', authenticated, (req, res) => {
+router.get('/', (req, res) => {
   res.send('所有 Record')
 })
 
 // Create page
-router.get('/new', authenticated, (req, res) => {
+router.get('/new', (req, res) => {
   return res.render('new')
 })
 
 // Create post
-router.post('/', authenticated, (req, res) => {
+router.post('/', (req, res) => {
   const record = Record({ ...req.body, userId: req.user._id })
 
   record.save(err => {
@@ -24,7 +23,7 @@ router.post('/', authenticated, (req, res) => {
 })
 
 // edit page
-router.get('/:id/edit', authenticated, (req, res) => {
+router.get('/:id/edit', (req, res) => {
   Record.findOne({ _id: req.params.id, userId: req.user._id }, (err, record) => {
     if (err) return console.error(err)
     return res.render('edit', { record: record })
@@ -32,7 +31,7 @@ router.get('/:id/edit', authenticated, (req, res) => {
 })
 
 // edit post
-router.put('/:id', authenticated, (req, res) => {
+router.put('/:id', (req, res) => {
   Record.findOne({ _id: req.params.id, userId: req.user._id }, (err, record) => {
     if (err) return console.error(err)
 
@@ -46,7 +45,7 @@ router.put('/:id', authenticated, (req, res) => {
 })
 
 // delete post
-router.delete('/:id/delete', authenticated, (req, res) => {
+router.delete('/:id/delete', (req, res) => {
   Record.findOne({ _id: req.params.id, userId: req.user._id }, (err, record) => {
     if (err) return console.error(err)
     record.remove(err => {

@@ -1,9 +1,8 @@
 const express = require('express')
 const router = express.Router()
 const Records = require('../models/record')
-const { authenticated } = require('../config/auth')
 
-router.get('/month/:month', authenticated, (req, res) => {
+router.get('/month/:month', (req, res) => {
   const month = req.params.month
   Records.find({ userId: req.user._id }, (err, records) => {
     if (err) return console.log('month filter err!')
@@ -20,7 +19,7 @@ router.get('/month/:month', authenticated, (req, res) => {
   })
 })
 
-router.get('/category/:category', authenticated, (req, res) => {
+router.get('/category/:category', (req, res) => {
   Records.find({ category: req.params.category, userId: req.user._id }, (err, records) => {
     if (err) return console.log('category filter err')
 
